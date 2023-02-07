@@ -20,8 +20,8 @@ int Proverca_chisla()
   return num;
 }
 
-//Функция для заполнения массива рандомом
-int[] R_Mas()
+//Функция для заполнения массива рандомом c вводам переменых
+int[] R_Mas_Write()
 {
   Console.Write("Введите размер массива: ");
   int n = Proverca_chisla();
@@ -39,6 +39,19 @@ int[] R_Mas()
       }
   return f;
 }
+
+//Функция для заполнения массива рандомом 
+int[] R_Mas(int[] f,int min,int max)
+{
+  int j=0;
+  while (j < f.Length)
+      {
+        f[j]= new Random().Next(min,max);
+        j++;        
+      }
+  return f;
+}
+
 
 // Функция вывода
 void PrintMas(int[] arr){
@@ -79,6 +92,36 @@ do
   Console.Clear();
 
 //Начало тела задач
+
+//1. Найти точку пересечения двух прямых заданных уравнением y = k1 * x + b1, y = k2 * x + b2, b1 k1 и b2 и k2 заданы
+
+if (otvet1 == 1)
+    { double k1,k2,b1,b2;        //Переменный ввода
+      double x1,y1;              //Переменные вычисления
+
+      System.Console.Write("Введите K1:");
+      k1=Proverca_chisla();
+      System.Console.Write("Введите B1:");
+      b1=Proverca_chisla();
+      System.Console.Write("Введите K2:");
+      k2=Proverca_chisla();
+      System.Console.Write("Введите B2:");
+      b2=Proverca_chisla();
+      
+      if (k1==k2 && b1==b2){
+        System.Console.WriteLine("Прямые совпадают");
+      }
+      else{
+        if (k1==k2){
+          System.Console.WriteLine("Прямые параллельны");
+        }
+        else{
+          x1 = (b2-b1)/(k1-k2);
+          y1 = (k1*(b2-b1))/(k1-k2)+b1;
+          System.Console.WriteLine($"Точки пересечения: X = {x1}, Y = {y1}.");
+        }
+      }               
+    }
 
 
 
