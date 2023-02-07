@@ -191,12 +191,8 @@ if (otvet1 == 3)
         copy_mas[i]=arra[i];
       }
 
-      System.Console.Write($"После копирования получаем: ");
-      for(int i=0;i<arra.Length;i++){
-        System.Console.Write($"({copy_mas[i]}) ");
-        i++;
-      }
-      System.Console.WriteLine();
+      System.Console.WriteLine($"После копирования получаем: ");
+      PrintMas(copy_mas);
     }
 
 
