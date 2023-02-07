@@ -7,7 +7,8 @@ int Proverca_chisla()
 { 
   int num;
   while (true)
-    {var input = Console.ReadLine();
+    {   
+      var input = Console.ReadLine();
 
     if (int.TryParse(input, out num))
         break;                                                   // обработка при успехе и выход из цикла
@@ -123,6 +124,44 @@ if (otvet1 == 1)
       }               
     }
 
+//2. Написать программу масштабирования фигуры
+if (otvet1 == 2)
+    { 
+      int per=0,vershiny=0; //Счетчики
+      int[] arra = new int[8]; //Массив вершин
+
+
+      while (per<8){
+       System.Console.Write($"Введите {vershiny+1} вершину X,Y через пробел: ");
+       string? test = Console.ReadLine();
+       string[] temp = test.Split(new Char[] {' '});
+          foreach(string item in temp) //Обрабатываем каждое число отдельно.
+              {
+              if (per==8) {break;} 
+              arra[per] = int.Parse(item);
+              per++;                    
+              }
+       vershiny++;
+       if (per==8) {break;} 
+      }
+
+      System.Console.Write("Введите койфицент маштабирования");
+      int k = Proverca_chisla();
+
+      for(int i=0;i<arra.Length;i++){
+        if(arra[i]>0){arra[i]+=k;}
+        else{
+          if(arra[i]<0){arra[i]-=k;}
+          }
+      }
+
+      System.Console.Write($"После маштабирования получаем: ");
+      for(int i=0;i<arra.Length;i++){
+        System.Console.Write($"({arra[i]},{arra[i+1]}) ");
+        i++;
+      }
+      System.Console.WriteLine();
+    }
 
 
 
