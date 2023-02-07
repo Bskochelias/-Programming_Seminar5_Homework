@@ -163,6 +163,41 @@ if (otvet1 == 2)
       System.Console.WriteLine();
     }
 
+//3. Написать программу копирования массива
+if (otvet1 == 3)
+    { 
+      int per=0; //Счетчики
+      int n;
+      
+      System.Console.Write($"Введите размер копированого массива: ");
+      n = Proverca_chisla();
+      int[] arra = new int[n];      //Создания массивов
+      int[] copy_mas = new int[n];
+
+      while (per<n){
+       System.Console.Write($"Введите {per+1} элемент(Можно через пробел): ");
+       string? test = Console.ReadLine();
+       string[] temp = test.Split(new Char[] {' '});
+          foreach(string item in temp) //Обрабатываем каждое число отдельно.
+              {
+              if (per==n) {break;} 
+              arra[per] = int.Parse(item);
+              per++;                    
+              }
+       if (per==n) {break;} 
+      }
+
+      for(int i=0;i<arra.Length;i++){
+        copy_mas[i]=arra[i];
+      }
+
+      System.Console.Write($"После копирования получаем: ");
+      for(int i=0;i<arra.Length;i++){
+        System.Console.Write($"({copy_mas[i]}) ");
+        i++;
+      }
+      System.Console.WriteLine();
+    }
 
 
 //Конец тела задач    
